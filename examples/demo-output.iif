@@ -1,0 +1,33 @@
+!TRNS	TRNSID	TRNSTYPE	DATE	ACCNT	NAME	AMOUNT	DOCNUM	MEMO	CLEAR
+!SPL	SPLID	TRNSTYPE	DATE	ACCNT	NAME	AMOUNT	DOCNUM	MEMO	CLEAR
+!ENDTRNS
+TRNS		GENERAL JOURNAL	1/4/2026	Stripe Clearing		100.00	ch_demo_3Ox001	Charge ch_demo_3Ox001 (cus_demo_alice)	N
+SPL		GENERAL JOURNAL	1/4/2026	Revenue		-100.00	ch_demo_3Ox001	Charge ch_demo_3Ox001 (cus_demo_alice)	N
+ENDTRNS
+TRNS		GENERAL JOURNAL	1/4/2026	Payment Processing Fees		3.20	ch_demo_3Ox001	Stripe fee on ch_demo_3Ox001	N
+SPL		GENERAL JOURNAL	1/4/2026	Stripe Clearing		-3.20	ch_demo_3Ox001	Stripe fee on ch_demo_3Ox001	N
+ENDTRNS
+TRNS		GENERAL JOURNAL	1/5/2026	Stripe Clearing		49.00	ch_demo_3Ox002	Charge ch_demo_3Ox002 (cus_demo_bob)	N
+SPL		GENERAL JOURNAL	1/5/2026	Revenue		-49.00	ch_demo_3Ox002	Charge ch_demo_3Ox002 (cus_demo_bob)	N
+ENDTRNS
+TRNS		GENERAL JOURNAL	1/5/2026	Payment Processing Fees		1.72	ch_demo_3Ox002	Stripe fee on ch_demo_3Ox002	N
+SPL		GENERAL JOURNAL	1/5/2026	Stripe Clearing		-1.72	ch_demo_3Ox002	Stripe fee on ch_demo_3Ox002	N
+ENDTRNS
+TRNS		GENERAL JOURNAL	1/8/2026	Stripe Clearing		1188.00	in_demo_001	Invoice in_demo_001 paid (long-period sub   booked to deferred revenue)	N
+SPL		GENERAL JOURNAL	1/8/2026	Deferred Revenue		-1188.00	in_demo_001	Invoice in_demo_001 paid (long-period sub   booked to deferred revenue)	N
+ENDTRNS
+TRNS		GENERAL JOURNAL	1/8/2026	Payment Processing Fees		34.75	in_demo_001	Stripe fee on invoice in_demo_001	N
+SPL		GENERAL JOURNAL	1/8/2026	Stripe Clearing		-34.75	in_demo_001	Stripe fee on invoice in_demo_001	N
+ENDTRNS
+TRNS		GENERAL JOURNAL	1/9/2026	Stripe Clearing		99.00	in_demo_002	Invoice in_demo_002 paid	N
+SPL		GENERAL JOURNAL	1/9/2026	Revenue		-99.00	in_demo_002	Invoice in_demo_002 paid	N
+ENDTRNS
+TRNS		GENERAL JOURNAL	1/9/2026	Payment Processing Fees		3.17	in_demo_002	Stripe fee on invoice in_demo_002	N
+SPL		GENERAL JOURNAL	1/9/2026	Stripe Clearing		-3.17	in_demo_002	Stripe fee on invoice in_demo_002	N
+ENDTRNS
+TRNS		GENERAL JOURNAL	1/10/2026	Refunds Contra-Revenue		49.00	ch_demo_3Ox002	Refund of charge ch_demo_3Ox002	N
+SPL		GENERAL JOURNAL	1/10/2026	Stripe Clearing		-49.00	ch_demo_3Ox002	Refund of charge ch_demo_3Ox002	N
+ENDTRNS
+TRNS		GENERAL JOURNAL	1/14/2026	Bank		2265.16	po_demo_001	Payout po_demo_001 to bank	N
+SPL		GENERAL JOURNAL	1/14/2026	Stripe Clearing		-2265.16	po_demo_001	Payout po_demo_001 to bank	N
+ENDTRNS

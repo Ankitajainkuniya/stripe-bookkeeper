@@ -9,7 +9,7 @@ from rich.console import Console
 
 from stripe_bookkeeper import __version__
 from stripe_bookkeeper.chart_of_accounts import ChartOfAccounts
-from stripe_bookkeeper.exporters import print_table, to_csv, to_json
+from stripe_bookkeeper.exporters import print_table, to_csv, to_iif, to_json
 from stripe_bookkeeper.rules import event_to_entries
 
 app = typer.Typer(
@@ -38,6 +38,7 @@ def _process_events(events, coa: ChartOfAccounts):
 def demo(
     csv_out: Optional[Path] = typer.Option(None, "--csv", help="Write CSV journal to this path."),
     json_out: Optional[Path] = typer.Option(None, "--json", help="Write JSON journal to this path."),
+    iif_out: Optional[Path] = typer.Option(None, "--iif", help="Write QuickBooks Desktop IIF file to this path."),
     coa: Optional[Path] = typer.Option(None, "--coa", help="Custom chart of accounts (YAML)."),
 ) -> None:
     """Run on bundled sample Stripe events — no API key needed."""
@@ -57,6 +58,9 @@ def demo(
     if json_out:
         to_json(entries, json_out)
         console.print(f"[green]Wrote JSON:[/green] {json_out}")
+    if iif_out:
+        to_iif(entries, iif_out)
+        console.print(f"[green]Wrote IIF:[/green] {iif_out}  (import via QuickBooks Desktop → File → Utilities → Import → IIF Files)")
 
 
 @app.command()
@@ -68,6 +72,7 @@ def sync(
     ),
     csv_out: Optional[Path] = typer.Option(None, "--csv", help="Write CSV journal to this path."),
     json_out: Optional[Path] = typer.Option(None, "--json", help="Write JSON journal to this path."),
+    iif_out: Optional[Path] = typer.Option(None, "--iif", help="Write QuickBooks Desktop IIF file to this path."),
     coa: Optional[Path] = typer.Option(None, "--coa", help="Custom chart of accounts (YAML)."),
 ) -> None:
     """Pull Stripe events from your live account and convert to journal entries."""
@@ -98,6 +103,9 @@ def sync(
     if json_out:
         to_json(entries, json_out)
         console.print(f"[green]Wrote JSON:[/green] {json_out}")
+    if iif_out:
+        to_iif(entries, iif_out)
+        console.print(f"[green]Wrote IIF:[/green] {iif_out}  (import via QuickBooks Desktop → File → Utilities → Import → IIF Files)")
 
 
 @app.command()

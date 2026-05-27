@@ -28,7 +28,9 @@ stripe-bookkeeper demo
 
 # Real run — needs $STRIPE_API_KEY in env
 export STRIPE_API_KEY=sk_live_...
-stripe-bookkeeper sync --since 2026-01-01 --until 2026-03-31 --csv journal.csv
+stripe-bookkeeper sync --since 2026-01-01 --until 2026-03-31 --iif journal.iif
+
+# Then in QuickBooks Desktop: File → Utilities → Import → IIF Files → journal.iif
 ```
 
 The output CSV imports cleanly into QuickBooks, Xero, Wave, or whatever spreadsheet your CPA lives in.
@@ -65,11 +67,16 @@ stripe-bookkeeper sync --since 2026-01-01 --coa my-coa.yaml --csv journal.csv
 
 ## Output formats
 
-- **CSV** — `--csv journal.csv` (works with every accounting tool)
-- **JSON** — `--json journal.json` (for pipelines)
+- **QuickBooks IIF** — `--iif journal.iif` — import directly via QuickBooks Desktop → File → Utilities → Import → IIF Files. Each entry becomes a balanced General Journal transaction. ([sample output](examples/demo-output.iif))
+- **CSV** — `--csv journal.csv` — works with every accounting tool, Xero, Wave, spreadsheets
+- **JSON** — `--json journal.json` — for pipelines
 - **Pretty table** — default stdout, useful for sanity-checking
 
-QuickBooks IIF and Xero direct-upload are on the roadmap.
+```bash
+stripe-bookkeeper demo --iif demo.iif --csv demo.csv --json demo.json
+```
+
+Xero direct upload, NetSuite, and Sage are on the roadmap.
 
 ## Status
 
