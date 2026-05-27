@@ -1,0 +1,11 @@
+# Custom Chart of Accounts — pass via `stripe-bookkeeper sync --coa sample-coa.yaml`
+#
+# Override any of these labels. Anything you omit falls back to the default.
+
+revenue: "4000 - SaaS Revenue"
+deferred_revenue: "2400 - Deferred Revenue"
+stripe_clearing: "1210 - Stripe Clearing Account"
+payment_processing_fees: "6300 - Payment Processing Fees"
+bank: "1000 - Operating Account"
+refunds_contra: "4900 - Refunds & Returns"
+disputes_pending: "1290 - Disputes Pending"

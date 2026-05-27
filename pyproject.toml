@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stripe-bookkeeper"
+version = "0.1.0"
+description = "Convert Stripe activity into GAAP-compliant double-entry journal entries"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "Ankita Jainkuniya" }
+]
+keywords = ["stripe", "accounting", "bookkeeping", "gaap", "double-entry", "journal-entries", "quickbooks", "xero"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business :: Financial :: Accounting",
+]
+dependencies = [
+    "typer>=0.9.0",
+    "rich>=13.0.0",
+    "pyyaml>=6.0",
+    "stripe>=7.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
+[project.scripts]
+stripe-bookkeeper = "stripe_bookkeeper.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/Ankitajainkuniya/stripe-bookkeeper"
+Issues = "https://github.com/Ankitajainkuniya/stripe-bookkeeper/issues"
+
+[tool.setuptools.packages.find]
+include = ["stripe_bookkeeper*"]
+
+[tool.setuptools.package-data]
+stripe_bookkeeper = ["fixtures/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

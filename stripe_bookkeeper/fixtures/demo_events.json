@@ -1,0 +1,102 @@
+[
+  {
+    "id": "evt_demo_001",
+    "type": "charge.succeeded",
+    "data": {
+      "object": {
+        "id": "ch_demo_3Ox001",
+        "amount": 10000,
+        "currency": "usd",
+        "created": 1767484800,
+        "customer": "cus_demo_alice",
+        "balance_transaction": { "fee": 320 }
+      }
+    }
+  },
+  {
+    "id": "evt_demo_002",
+    "type": "charge.succeeded",
+    "data": {
+      "object": {
+        "id": "ch_demo_3Ox002",
+        "amount": 4900,
+        "currency": "usd",
+        "created": 1767571200,
+        "customer": "cus_demo_bob",
+        "balance_transaction": { "fee": 172 }
+      }
+    }
+  },
+  {
+    "id": "evt_demo_003",
+    "type": "invoice.paid",
+    "data": {
+      "object": {
+        "id": "in_demo_001",
+        "amount_paid": 118800,
+        "currency": "usd",
+        "created": 1767830400,
+        "customer": "cus_demo_carol",
+        "subscription": "sub_demo_001",
+        "balance_transaction": { "fee": 3475 },
+        "lines": {
+          "data": [
+            {
+              "period": { "start": 1767830400, "end": 1799366400 },
+              "amount": 118800
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "evt_demo_004",
+    "type": "invoice.paid",
+    "data": {
+      "object": {
+        "id": "in_demo_002",
+        "amount_paid": 9900,
+        "currency": "usd",
+        "created": 1767916800,
+        "customer": "cus_demo_dave",
+        "subscription": "sub_demo_002",
+        "balance_transaction": { "fee": 317 },
+        "lines": {
+          "data": [
+            {
+              "period": { "start": 1767916800, "end": 1770508800 },
+              "amount": 9900
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "evt_demo_005",
+    "type": "charge.refunded",
+    "data": {
+      "object": {
+        "id": "ch_demo_3Ox002",
+        "amount_refunded": 4900,
+        "currency": "usd",
+        "created": 1768003200,
+        "customer": "cus_demo_bob"
+      }
+    }
+  },
+  {
+    "id": "evt_demo_006",
+    "type": "payout.paid",
+    "data": {
+      "object": {
+        "id": "po_demo_001",
+        "amount": 226516,
+        "currency": "usd",
+        "created": 1768262400,
+        "arrival_date": 1768348800
+      }
+    }
+  }
+]
