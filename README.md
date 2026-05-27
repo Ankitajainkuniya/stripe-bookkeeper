@@ -4,26 +4,7 @@
 
 `stripe-bookkeeper` reads your Stripe activity and emits **GAAP-compliant double-entry journal entries** — the kind your CPA actually wants. No QuickBooks plugin, no $200/mo connector, no spreadsheet hell at tax time.
 
-```
-$ stripe-bookkeeper demo
-
-  Stripe Bookkeeper — demo mode (no API key needed)
-
-  Date         Account                       Debit     Credit   Memo
-  ───────────────────────────────────────────────────────────────────────────
-  2026-01-04   Stripe Clearing              $100.00            ch_3Ox...
-  2026-01-04     Revenue                                $100.00
-  2026-01-04   Payment Processing Fees        $3.20            Stripe fee
-  2026-01-04     Stripe Clearing                          $3.20
-
-  2026-01-08   Deferred Revenue              $99.00            inv_1Pq... (annual sub, monthly recognition)
-  2026-01-08     Revenue                                 $99.00
-
-  2026-01-15   Bank                       $1,847.30            po_1Pq... payout
-  2026-01-15     Stripe Clearing                       $1,847.30
-
-  Balanced  ✓   Total DR $2,049.50  =  Total CR $2,049.50
-```
+![stripe-bookkeeper demo](demo.svg)
 
 ## Why this exists
 
